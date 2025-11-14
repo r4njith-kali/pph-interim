@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VR Simulation for PPH Training - Interim Report</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/themes/light.css" />
+  <script type="module"
+    src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/shoelace-autoloader.js"></script>
+
+  <link rel="stylesheet" href="./index.css">
+
+  <link rel="stylesheet" href="./components/team-member/team-member.css">
+  <script type="module" src="./components/team-member/team-member.js"></script>
+
+  <link rel="stylesheet" href="./components/table-of-content/table-of-content.css">
+
+  <script type="module" src="./components/image/image-component.js"></script>
+
+  <script type="module" src="./components/video/video.js"></script>
+
+  <link rel="stylesheet" href="./components/references/references.css">
+
+  <link rel="stylesheet" href="./components/scroll-to-top/scroll-to-top.css">
+  <script src="./components/scroll-to-top/scroll-to-top.js"></script>
+
+  <script src="./components/table-component/table-component.js"></script>
+
+  <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="content">
+    <section class="hero">
+      <p class="eyebrow">VR003 • Interim Report</p>
+      <h1>Enhancing PPH Training for Medical Students</h1>
+      <p class="lead">
+        A human-centred VR simulation that pairs clinical decision-making with empathy training to help Year 4 medical students respond to Postpartum Hemorrhage (PPH) confidently.
+      </p>
+      <div class="hero-tags">
+        <span>Virtual Reality</span>
+        <span>Medical Education</span>
+        <span>Empathy Training</span>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <div class="section-header">
+        <h2>Meet the Team</h2>
+        <p class="section-intro">
+          A multidisciplinary group combining biomedical, mechanical, and experience design expertise.
+        </p>
+      </div>
+      <div class="team-member-wrapper">
+        <team-member avatar="assets/Sarah_headshot.png.png" name="Sarah" department="Biomedical Engineering" year="2026"></team-member>
+        <team-member avatar="assets/ranjith.jpg" name="Ranjith" department="Mechanical Engineering" year="2026"></team-member>
+        <team-member avatar="assets/ragavi.jpg" name="Ragavi" department="Biomedical Engineering" year="2026"></team-member>
+        <team-member avatar="assets/deepika.JPG" name="Deepika" department="Biomedical Engineering" year="2026"></team-member>
+        <team-member avatar="assets/snega.png" name="Snega" department="Biomedical Engineering" year="2026"></team-member>
+      </div>
+    </section>
+
+    <sl-divider class="section-divider"></sl-divider>
+
+    <section class="toc-section">
+      <div class="table-of-content">
+        <h2>Table of Contents</h2>
+        <sl-tree>
+        <sl-tree-item expanded>
+          <a href="#section-1">1 Introduction</a>
+          <sl-tree-item><a href="#section-1-1">1.1 What is PPH</a></sl-tree-item>
+          <sl-tree-item><a href="#section-1-2">1.2 Research Analysis</a></sl-tree-item>
+        </sl-tree-item>
+
+        <sl-tree-item expanded>
+          <a href="#section-2">2 Identified Gaps</a>
+          <sl-tree-item><a href="#section-2-1">2.1 Current Study Methods for PPH</a></sl-tree-item>
+          <sl-tree-item><a href="#section-2-2">2.2 Identified Gaps</a></sl-tree-item>
+          <sl-tree-item><a href="#section-2-3">2.3 Importance of Gap Identification</a></sl-tree-item>
+        </sl-tree-item>
+        
+        <sl-tree-item expanded>
+          <a href="#section-3">3 Solution Introduction/Methods</a>
+          <sl-tree-item><a href="#section-3-1">3.1 Gap Improvement Suggestions</a></sl-tree-item>
+          <sl-tree-item><a href="#section-3-2">3.2 Solution Introduction and Description</a></sl-tree-item>
+          <sl-tree-item><a href="#section-3-3">3.3 Aims of Solution</a></sl-tree-item>
+        </sl-tree-item>
+        
+        <sl-tree-item expanded>
+          <a href="#section-4">4 Prototyping</a>
+          <sl-tree-item><a href="#section-4-1-1">4.1 Storyboard</a></sl-tree-item>
+          <sl-tree-item><a href="#section-4-1-2">4.2 VR Environment and AI Avatar</a></sl-tree-item>
+          <sl-tree-item><a href="#section-4-1-3">4.3 Prototyping for Inclusion of Audios in VR Simulation</a></sl-tree-item>
+          <sl-tree-item><a href="#section-4-1-4">4.4 Empathy Role Play Training</a></sl-tree-item>
+        </sl-tree-item>
+        
+        <sl-tree-item expanded>
+          <a href="#section-5">5 Prototyping Challenges Analysis</a>
+          <sl-tree-item><a href="#section-5-1">5.1 Consistency in Simulation Learning Outcomes</a></sl-tree-item>
+          <sl-tree-item><a href="#section-5-2">5.2 Lack of Tactile Feedback for Uterine Palpation</a></sl-tree-item>
+          <sl-tree-item><a href="#section-5-3">5.3 Overreliance on VR Cues</a></sl-tree-item>
+          <sl-tree-item><a href="#section-5-4">5.4 Subjective Bias in Empathy</a></sl-tree-item>
+        </sl-tree-item>
+        
+        <sl-tree-item expanded>
+          <a href="#section-6">6 Next Steps</a>
+          <sl-tree-item><a href="#section-6-1">6.1 Next Steps</a></sl-tree-item>
+        </sl-tree-item>
+        
+        <sl-tree-item><a href="#section-7">7 Work Completed</a></sl-tree-item>
+        <sl-tree-item><a href="#section-8">8 Appendix</a></sl-tree-item>
+
+        <sl-tree-item><a href="#references">References</a></sl-tree-item>
+      </sl-tree>
+      </div>
+    </section>
+    <sl-divider class="section-divider"></sl-divider>
+
+    <section class="abstract-section">
+        <h2>Abstract</h2>
+        <div class="abstract-content">
+            <p>
+                Postpartum Hemorrhage (PPH) is the leading cause of maternal mortality globally. It is characterised by its sudden onset and significant blood loss. Thus, quick and timely management, accurate and appropriate treatment, and effective and compassionate communication is vital in mitigating its impact. Current (PPH) training for year 4 medical students in Singapore is inadequate in equipping students with the necessary practical skills and empathetic communication techniques. Current training methods suffer from limited hands-on exposure, insufficient refresher opportunities, and limited time to focus solely on PPH. To address the current identifiable gaps in PPH training, this report introduces a Virtual Reality (VR) simulation for PPH training, with high-fidelity audio and visual cues, integrating theoretical knowledge with practical decision making actions and realistic patient responses. This allows for consistent, realistic, and immersive PPH training. Additionally, students will participate in pair work, to further refine their empathetic communication skills. This integrated VR and communication approach is designed to provide consistent, realistic, and dedicated PPH practice. This ultimately improves the students confidence in readily managing PPH emergencies, and responses under pressure.
+            </p>
+        </div>
+    </section>
+
+    <section class="report-section">
+      <div id="section-1">
+        <h2> 1 Introduction </h2>
+      </div>
+
+      <div id="section-1-1">
+        <h3>1.1 What is PPH</h3>
+        <p>
+          The American College of Obstetricians and Gynecologists (ACOG) defines PPH as excessive bleeding after childbirth, characterized by a cumulative blood loss of ≥1,000 mL or any amount of bleeding associated with signs or symptoms of hypovolemia occurring within 24 hours of delivery (ACOG, 2017). PPH is classified as primary, occurring within the first 24 hours, or secondary, occurring between 24 hours and 12 weeks postpartum (ACOG, 2017). Globally, this complication causes approximately 70,000 maternal deaths each year (WHO, 2018). Even among survivors, PPH often leads to long-term complications such as anemia, blood transfusion dependence, and psychological distress (Say et al., 2014).
+        </p>
+        <h4>Symptoms of PPH</h4>
+        <p>
+          Physiological changes during pregnancy may delay the clinical detection of hemorrhage, and symptoms may not appear until 500–1,000 mL of blood loss has occurred (Rath et al., 2021). Tachycardia is often the earliest indicator of impending hypovolemic shock, followed by hypotension, orthostatic changes, dyspnea, nausea, and a decrease in hematocrit levels (Evensen et al., 2017)
+        </p>
+        <h4>PPH Management</h4>
+        <p>
+          Effective management of PPH requires a rapid and systematic response guided by the “Four T’s” mnemonic ; Tone, Trauma, Tissue, and Thrombin(Sebghati & Chandraharan, 2017). Initial steps include activating emergency protocols, assessing circulation, and initiating fluid resuscitation with warmed isotonic crystalloids (International Federation of Gynecology and Obstetrics [FIGO], 2022). As uterine atony accounts for 70–80 % of cases, first-line interventions include fundal massage, bladder emptying, and administration of uterotonics such as oxytocin and ergometrine (FIGO, 2022). The early administration of tranexamic acid (TXA) has also been shown to reduce mortality by promoting clot stabilisation (WOMAN Trial Collaborators, 2017). When conservative measures fail, escalation to surgical procedures such as balloon tamponade, arterial ligation, or hysterectomy is necessary to prevent cardiovascular collapse (FIGO, 2022).
+        </p>
+      </div>
+
+      <div id="section-1-2">
+        <h3>1.2 Research Analysis</h3>
+        <p>
+          Our research was conducted through several resources to ensure that the development of our VR simulation for postpartum haemorrhage (PPH) was medically correct and educationally relevant. From textbooks such as <em>Williams Obstetrics (26th Edition)</em> and <em>Obstetrics by Ten Teachers (21st Edition)</em>, we obtained a clear view of the causes of PPH, its risk factors, and management steps: uterine atony, retained tissue, trauma, and coagulopathy. The same resources described Active Management of the Third Stage of Labour (AMTSL), which clinically underpinned our simulation. Clinical and educational videos from YouTube, specifically from the Prompt Maternity Foundation channel, were the basis of our main visual references showing how emergencies in PPH are taught and managed in practice. These videos helped us analyse the communication flow, teamwork, and how emotional composure affects responses by patients and teams.
+        </p>
+        <p>
+          To strengthen our academic grounding, we reviewed journal articles focused on simulation-based obstetric training, empathy development, and emotional realism in medical education. The literature also reflected that current training, most often than not, places high relevance on developing technical competence at the expense of emotional preparedness. We also consulted our clinical supervisor, Dr Arundhati, Senior Consultant, Department of Obstetrics & Gynaecology, National University Hospital, who guided us in ensuring medical accuracy and making sure our scenario is aligned with real workflows in hospitals. Feedback from NUS medical students also stated that cases of PPH are rarely encountered and are mostly learned through theory; thus, there is definitely a need for an interactive, more emotionally engaging VR module for empathy.
+        </p>
+      </div>
+    </section>
+
+
+    <sl-divider class="section-divider"></sl-divider>
+    <section class="report-section">
+      <div id="section-2">
+        <h2>2. Identified Gaps</h2>
+      </div>
+
+      <div id="section-2-1">
+        <h3>2.1. Current Study Methods for PPH</h3>
+        <p>
+          Current PPH training for Year 4 medical students in Singapore adopts a blended pedagogical approach, combining theoretical foundations with limited clinical exposure and infrequent simulation-based drills. The primary mode of learning is completely theory-driven, relying heavily on didactic lectures and standard medical textbooks. Students are expected to retain complex management protocols, such as the “4 T’s” (Tone, Trauma, Tissue, Thrombin) and medication dosages, purely through passive learning methods. Assessment of this theoretical knowledge is conducted largely through written examinations, where PPH-related content constitutes approximately 10-15% of the total subject marks.
+        </p>
+        <p>
+          Clinical exposure is provided during a six-week Obstetrics and Gynaecology (OBGYN) rotation. This rotation accounts for only a small fraction (approximately 2%) of their total five-year study duration. While this posting intends to provide real-world experience, PPH is an unpredictable medical emergency. Consequently, students rarely encounter active cases during this short window, and when they do, their role is often limited to passive observation due to the urgency of the situation.
+        </p>
+        <p>
+          To bridge the gap between theory and practice, students attend practical simulation training days (e.g., PROMPT). However, these sessions are infrequent, typically occurring only twice a year (once every six months). Furthermore, current standard simulations often utilise low-fidelity mannequins, characterised in our primary research as involving a "motionless mother” and unreactive partners. These current methods lack the necessary physiological realism and dynamic emotional feedback required to truly prepare students for the high–pressure environment of a real PPH emergency.
+        </p>
+      </div>
+
+      <div id="section-2-2">
+        <h3>2.2. Identified Gaps</h3>
+        <p>
+          Several key gaps were identified in the current approach to PPH training for medical students. Firstly, many students have never encountered an actual PPH case during their clinical rotations. PPH tends to be an unpredictable and relatively uncommon obstetric emergency, which makes opportunities for real-life exposure limited. Medical students are quite unlikely to experience this emergency to practice their skills in the short span of 4-6 weeks of their OBGYN posting. As a result, students mainly rely on lectures and textbooks to learn PPH management, with hands-on simulations conducted only once every six months. This lack of frequent practice restricts retention of skills and preparedness in managing real emergencies.
+        </p>
+        <p>
+          Secondly, although students can accurately recall the theoretical knowledge of PPH symptoms and treatment steps, they often struggle to apply these skills in high-pressure, real-world situations. During PPH emergency scenarios, many hesitate in both their words and actions due to a lack of confidence and practical experience.
+        </p>
+        <p>
+          Moreover, another notable gap exists in the emotional aspect of training. Students tend to focus only on executing clinical procedures, often neglecting patient communication and empathy. In a real PPH case, the patient and her partner are highly distressed, and effective reassurance is needed. Addressing these gaps is important for the future of medical education and patient care. To manage high-stress medical situations like PPH, medical students need to be equipped with both technical proficiency and emotional readiness. This allows future healthcare professionals to respond more efficiently, reduce preventable errors, and provide safer, more compassionate care in the situation of PPH.
+        </p>
+      </div>
+
+      <div id="section-2-3">
+        <h3>2.3. Why is it important to address the gaps for the future</h3>
+        <p>
+          Addressing the identified gaps in current PPH training is critical for improving both immediate patient outcomes and the long-term professional competency of future doctors. Firstly, PPH is a rapid and unforgiving emergency where every second counts. The current lack of frequent, realistic practice means students may hesitate when faced with a real-life crisis. By bridging the gap between theoretical knowledge and practical application, we ensure that future Medical Officers can provide the immediate life-saving leadership required to reduce preventable maternal deaths.
+        </p>
+        <p>
+          Secondly, effective management of PPH extends beyond clinical procedures; it requires managing the highly distressed state of the patient and their family. Panic and anxiety can worsen stress and disrupt team coordination. Addressing the current emotional disconnect in training is vital, as empathetic communication is necessary to maintain patient trust, improve cooperation, and support safer clinical outcomes. Ultimately, ensuring students are both clinically confident and emotionally ready is essential for preparing them to handle the realities of their future medical careers.
+        </p>
+      </div>
+      
+      <div id="section-3">
+        <h2>3. Solution Introduction/Methods</h2>
+      </div>
+
+      <div id="section-3-1">
+        <h3>3.1. Gap Improvement Suggestions</h3>
+        <p>
+          As mentioned in the previous section, the identified gaps are clear. Current PPH training is too theory driven. Infrequent and insufficient time is provided for practical skills to be instilled, and that there is an emotional disconnect faced during interaction between the patients and students. These gaps will be narrowed down to three targetable issues within the current state of the solution that need to be directly addressed and improved on.
+        </p>
+        <p>
+          Firstly, to address the infrequency and inconvenience of current PPH training and studies, our solution would need to be accessible on demand. This would directly resolve the gap where students find themselves being unable to practice their skills due to time constraints within their timetable. Next, our solution would need to provide a realistic and immersive PPH training experience, where students would be able to accurately select the correct course of action for a PPH emergency. Lastly, to address the emotional disconnect that students face, our solution would need to enhance empathetic communication, such that students are better prepared to respond appropriately, in a compassionate manner when dealing with the patient.
+        </p>
+        <p>
+          By integrating the diverse needs of our problem statement, we have devised an immersive and realistic VR simulation for PPH training, with the inclusion of interactive, realistic PPH scenario training, alongside empathetic communication roleplay exercises.
+        </p>
+      </div>
+      
+      <div id="section-3-2">
+        <h3>3.2 Solution Introduction and Description</h3>
+        <p>
+          For our solution to achieve a realistic PPH scenario, we have mapped out the flow of the most common PPH scenario flow chart, to ensure that there is a positive and negative impact based on the student’s choices. The simulation will be carried out with a VR headset, with unity programming, that will provide the medical students with a first person perspective to carry out the necessary PPH mitigation protocols. Realistic audio and visual cues are also imperative, as they would be the identifiable symptoms that the students must recognise to diagnose a patient with PPH. Lastly, the empathy roleplay training should be able to analyse and determine if the responses provided fulfilled the criteria for appropriate amount of empathy, while providing the appropriate feedback if responses aren't met.
+        </p>
+      </div>
+      
+      <div id="section-3-3">
+        <h3>3.3 Aims of Solution</h3>
+        <p>
+          We aim to bridge the gap between theoretical and practical knowledge, while building confidence within the students in overseeing real PPH cases. We also aim to improve situational awareness, empathetic communication, and critical thinking skills, which would be transferable to his career after his studies.
+        </p>
+        <p>
+          We have developed several prototyping works, to verify if certain aspects of our ideation process can be implemented into our final solution.
+        </p>
+      </div>
+      
+      <div id="section-4">
+        <h2>4. Prototyping</h2>
+      </div>
+      
+      <div id="section-4-1-1">
+        <h3>4.1 Storyboard</h3>
+        <h4>Rationale for Storyboarding</h4>
+        <p>
+          Before developing the VR simulation, we created a structured scenario flowchart that functioned as our storyboard. This was necessary because a PPH emergency progresses rapidly, and both clinical and emotional events occur simultaneously. A flowchart allowed us to clearly map out the progression of symptoms, clinical decision points, and communication cues in a logical sequence. It ensured that the scenario remained medically accurate while also incorporating the emotional tension experienced by the patient and her partner. By visualising the scenario in this structured form, we were able to identify which aspects were most essential for learning outcomes, such as the timing of interventions, recognition of clinical deterioration, and opportunities to provide reassurance. This approach also supported alignment within the team, ensuring that the VR environment, audio cues, and empathy roleplay components were integrated cohesively rather than developed in isolation.
+        </p>
+        <h4>Description of the Storyboard</h4>
+        <p>
+          The storyboard was designed as a step-by-step representation of the entire PPH case, beginning from the initial postpartum recovery stage and progressing into a medical emergency. It was divided into three main sections: (1) <strong>Initial Patient State</strong>, (2) <strong>Onset and Escalation of PPH</strong>, and (3) <strong>Critical Management and Outcome Pathways</strong>. In the first stage, the patient appears stable. The flowchart outlines a mild complaint of discomfort, subtle increases in bleeding, and the first emotional cue: the patient expressing unease. As bleeding increases, the flowchart marks the escalation stage, where tachycardia occurs, and the partner expresses growing concern. At each escalation point, clinical interventions are paired with expected communication responses, such as explaining actions or reassuring the patient. The final section branches into multiple paths based on student decisions. If the student performs timely uterine massage and administers uterotonics, the patient stabilises. If delayed or incorrect actions occur, the bleeding worsens, leading to increased distress cues and further interventions.
+        </p>
+        
+        <image-component tag="flowchart" source="assets/pph-flowchart.png"
+          subtitle="Figure 1: PPH management flow chart"></image-component>
+          
+        <h4>Results and Insights</h4>
+        <p>
+          The flowchart storyboard proved valuable in clarifying where learning emphasis should be placed. It highlighted that PPH training is not solely about reproducing clinical procedures, but about managing the <strong>timing</strong> of those procedures under emotional and situational pressure. The flowchart allowed us to determine specific points where students commonly hesitate, such as deciding when to escalate care or when to communicate findings to the patient and her partner. These became key focus areas in the VR simulation. Additionally, the branching structure helped ensure that the simulation would not feel linear or predictable. Instead, student choices meaningfully influence patient outcomes, enhancing realism and personal accountability in learning. The flowchart also guided our audio and empathy roleplay prototypes by marking where emotional intensity increases. This ensured that communication demands were introduced intentionally rather than randomly.
+        </p>
+      </div>
+
+      <div id="section-4-1-2">
+        <h3>4.2 VR Environment and AI Avatar</h3>
+        <h4>Rationale for VR Environment and Avatar Development</h4>
+        <p>
+          The primary driver for developing a fully interactive VR environment and AI-driven avatars was to address the critical lack of realism in current simulation training. Existing solutions often rely on static manikins or non-reactive virtual characters, which fail to replicate the chaotic and team-based nature of a real PPH emergency. Medical students like “John” feel disconnected from the urgency of actual cases because current training tools lack autonomy and responsiveness. To bridge this gap, it was necessary to move beyond simple 360-degree videos and create “an autonomous world”. This required an environment that not only looks like a delivery suite but acts like one, with characters that can move, react to the user’s actions, and provide dynamic verbal and emotional feedback. This technical foundation is essential for enabling the hands-on practice and empathetic communication training that current methods lack.
+        </p>
+        <h4>Description of the Prototype</h4>
+        <p>
+          The prototyping process focused on creating the core technical building blocks required for a realistic simulation: an autonomous environment, precise event sequencing, and a responsive AI patient. The VR delivery room environment was built in Unity, designed to provide spatial immersion. To make this environment “alive”, we developed an “animation engine” by combining Unity’s NavMeshAgent for pathfinding with an Animator component using standard assets. This allowed non-player characters, such as the nurse, to autonomously navigate the room rather than remaining static.
+        </p>
+        <p>
+          To manage the complex flow of a PPH emergency, a “Director” script (Scene1Manager and Scene2Manager) was written in C#. This script utilises Coroutines to precisely time events, ensuring that critical changes, such as deteriorating vitals on a monitor, occur only after specific triggers, such as the patient finishing a line of dialogue.
+        </p>
+
+        <video-component 
+            tag="vr-environment" 
+            source="https://www.youtube.com/embed/NBwuki8-kfM"
+            subtitle="Video: VR Environment Prototype"
+        ></video-component>
+
+        <p>
+          The most significant technical development was the AI Avatar “Emotion Engine”. We integrated the Google Gemini-flash model to serve as the avatar’s “brain”, handling conversation logic. By using a specific system prompt, we forced Gemini to output responses in a clean JSON format containing two keys: “emotion” and “response”. The “emotion” data drives a FaceMaterialSwitcher script in Unity, which instantly swaps the avatar’s facial texture (e.g., from neutral to pained) to match her words. Simultaneously, the “response” text is sent to ElevenLabs to generate realistic, real-time audio.
+        </p>
+
+        <video-component 
+            tag="ai-avatar-prototype" 
+            source="https://www.youtube.com/embed/mTQWO8qkUBs"
+            subtitle="Video: AI Avatar Prototype"
+        ></video-component>
+
+        <h4>Results and Key Learnings</h4>
+        <p>
+          The prototyping phase successfully validated that the Unity engine can integrate all necessary components for a complex medical simulation. The “Director” script proved effective as a proof-of-concept for managing timed, complex scenarios that react dynamically to the user’s position and actions.
+        </p>
+        <p>
+          Furthermore, the AI avatar prototype demonstrated that unscripted, dynamic conversations are technically feasible in VR. The “Emotion Engine” successfully created a believable loop where the avatar could understand user input and respond with both appropriate dialogue and matching facial expressions without requiring complex, performance-heavy facial rigging. This confirms that we can build the technical infrastructure necessary to support the empathy training role-play goals in the final simulation.
+        </p>
+      </div>
+
+      <div id="section-4-1-3">
+        <h3>4.3 Prototyping for Inclusion of Audios in VR Simulation</h3>
+        <h4>Rationale for Audio Integration</h4>
+        <p>
+          To improve the training through VR simulation such that it is realistic and immersive, we discovered that adding audio elements made a big difference. Instead of just visuals and step-by-step actions like in traditional simulations, adding in realistic audio enhances the feel and emotional tone of real clinical environments. The lack of realistic sounds like in an actual delivery room, its harder for learners to grasp the intensity, pressure, urgency and communication needed during actual PPH emergencies. By introducing authentic delivery room sounds such as monitor beeps at 110bpm, patient distress and dialogue, the simulation mimics the tensions and unpredictability seen in real PPH cases, boosting involvement and allowing students to practice composure and communication skills. Furthermore, auditory cues provide diagnostic information that encourages students to integrate sensory inputs into clinical reasoning, mirroring the multifaceted nature of real-world medical decision-making.
+        </p>
+        <h4>Description of the Audio Prototype</h4>
+        <p>
+          The Delivery Room Audio Prototype aimed to improve realism plus boost diagnostic training in the PPH VR simulation. The prototype introduces environmental and interaction-based sounds that a medical student would likely encounter during a real PPH emergency. These audio cues were designed with two main objectives which are to enhance realism and immersion, and to support diagnostic learning.
+        </p>
+        <p>
+          To create a realistic experience, authentic audio cues were added to the simulation, mirroring the auditory setting of a true PPH situation. This includes patient distress sounds, background medical equipment noise, and emotional dialogue from family members and these are elements that increase the emotional pressure felt during training. This setup allows students to manage clinical procedures calmly under stress and builds their ability to communicate with patients, a key part of crisis care frequently ignored in traditional drills.
+        </p>
+        <p>
+          For diagnostic learning, distinct auditory cues were used as clinical indicators. For example, the steady beep of a heart rate monitor at 110 bpm reflects tachycardia, possibly due to severe fluid loss. Another example is the mother’s dialogue, “Ow, it feels like I’m peeing,” which indicates excessive vaginal bleeding which is a key symptom of PPH. Students need to identify and respond appropriately to such auditory signs, integrating them with visual cues and medical guidelines.
+        </p>
+        <p>
+          Audio sourcing was conducted with a focus on creating realistic effects. The ECG monitor sound was obtained from an actual medical recording taken during a hospital procedure, while the patient's speech was drawn from a simulated PPH emergency scenario to preserve authenticity. The father’s voice was generated using ElevenLabs AI software to help mirror natural distress levels. This careful curation ensures that each sound contributes to a lifelike and emotionally engaging training experience.
+        </p>
+        <h4>Results and Impact</h4>
+        <p>
+          This implementation significantly enhances both the realism and educational value of the PPH simulation. Internal evaluations by the team indicated that the inclusion of sound made the environment more immersive, effectively recreating the stress and urgency of managing a real obstetric emergency. The addition of patient distress audios and background medical sounds evoked a stronger emotional response, encouraging a more empathetic and communicative approach from users during clinical scenarios.
+        </p>
+        <p>
+          The auditory cues also improved situational awareness and critical thinking from a learning perspective. Students demonstrated increased attentiveness to changes in the ECG beeping pattern and patient responses, using these as diagnostic signals to guide timely intervention. The realistic audio also encouraged collaboration and verbal coordination among team members during the simulation.
+        </p>
+        <p>
+          Overall, the audio integration bridged the gap between theoretical learning and real-world clinical performance. It enhanced students’ ability to remain composed under pressure, strengthened their communication skills, and fostered empathy toward patients and families. These outcomes suggest that audio-enhanced VR simulations are a valuable tool for preparing future healthcare professionals to manage PPH emergencies with confidence and compassion.
+        </p>
+      </div>
+
+      <div id="section-4-1-4">
+        <h3>4.4 Empathy Role Play Training</h3>
+        <h4>Rationale for Empathy Role Play Training</h4>
+        <p>
+          The empathy role-play training was developed to address the gap identified during our research; while medical students are well-versed in the technical steps to manage PPH, they often struggle to respond empathetically and maintain composure in emotionally charged emergencies. Current PPH training in medical schools is largely theoretical, with limited exposure to real-life psychological and emotional segments. This leads to non-empathetic communication and delayed decision-making under stress. We wanted to help students experience the emotional realism of a PPH scenario and practice communicating effectively with both the patient and her partner while working with their medical team. The prototype for empathy role-play was used as an intermediary step before building the full VR environment; this allowed us to capture emotional reactions, refine the dialogue, and spot those cues that either calm or escalate stress in high-pressure situations.
+        </p>
+        <h4>Description of Empathy Role Play Training</h4>
+        <p>
+          The empathy role-play prototype was a live simulation exercise that would take place in the classroom. One student acted as the healthcare provider and took charge of managing the PPH case, and another student played the role of the patient or played the role of the patient's partner. The scenario was scripted based on real clinical sequences, including the onset of heavy bleeding, rising distress, and the urgent response from the team. The script was intentionally designed to include emotionally sensitive cues like the patient's fear, physical discomfort, and the partner's escalating anxiety that allowed medical students to practice both clinical communication and emotional reassurance.
+        </p>
+        <p>
+          The empathy role-play prototype was implemented as a live simulation exercise conducted in a classroom environment. Students were divided into pairs, each taking turns to act in different roles. One student played the role of the healthcare provider, responsible for managing the PPH case and communicating with the rest of the team. Another took the role of the patient, portraying symptoms such as heavy bleeding, weakness, and distress. The scenario was scripted based on actual clinical sequences, beginning from the recognition of bleeding to the team’s urgent management response.
+        </p>
+        <h4>Results and Impact</h4>
+        <p>
+          The exercise was complemented by a peer evaluation form, where observers rated participants on empathy, clarity, and composure using a simplified rubric adapted from existing communication skills frameworks. Feedback discussions after each session identified moments that were particularly impactful on mitigating tension or, on the contrary, raising panic. Such findings have directly influenced the tuning of the dialogue designs and tone for the next phase of the VR simulation to ensure realistic responses from the virtual avatar that would mirror human emotion and communication dynamics.
+        </p>
+        <p>
+          The empathy role-play prototype generated valuable insights and will serve as the foundation for our upcoming pilot sessions with NUS medical students. These sessions will be implemented in collaboration with Dr Arundhati, Senior Consultant at the Division of Maternal Fetal Medicine, NUH. We plan to conduct small-group workshops of 6-8 students, where each group will experience the PPH scenario in rotation, taking turns as the healthcare provider, patient, and partner. Each session will include a short briefing, the live role-play, and a guided debrief led by a facilitator to discuss communication strategies and emotional responses.
+        </p>
+      </div>
+
+      <div id="section-5">
+        <h2>5. Prototyping Challenges Analysis</h2>
+        <p>
+          With all prototyping works, the journey from ideation to a final solution comes with its respective challenges. However, these challenges are crucial stepping stones, that serve as a valuable learning opportunity, and will enable us to improve upon and shape our iterative designs, to come one step closer to our final solution. The following challenges were encountered during the prototyping process for our solution.
+        </p>
+      </div>
+
+      <div id="section-5-1">
+        <h3>5.1 Consistency in Simulation Learning Outcomes</h3>
+        <p>
+          There will definitely exist a spectrum of medical students, who all experience a variability in their learning. This results in different reaction times, and varied responses and approaches to the scenario. As such, it is difficult to verify that a short practice simulation would translate into competence and confidence in the real world setting. There is thus a challenge in ensuring that the timing of cues, feedback from the AI, and the structure of the empathy roleplay training to consistently lead to the necessary skills and learning outcomes intended.
+        </p>
+      </div>
+      
+      <div id="section-5-2">
+        <h3>5.2 Lack of Tactile Feedback for Uterine Palpation</h3>
+        <p>
+          Uterine palpation, a physical exam where the clinician would feel a mother’s abdomen to identify uterine atony, is difficult to teach without tactile feedback. While the student may accurately follow on-screen motion and direction, accurate pressure would be unattainable without haptic feedback. A way to overcome this issue would be to create realistic haptic feedback with the use of Mixed Reality (MR). However, this implies a significant technical challenge in recreating realistic and convincing sensations to differentiate between an atonic and firm uterus.
+        </p>
+      </div>
+      
+      <div id="section-5-3">
+        <h3>5.3 Overreliance on VR Cues</h3>
+        <p>
+          There is a need for a fine balance in guiding the students on how to accurately carry out the necessary procedures in VR and allowing them to make independent choices. Excessive reliance on written and audio instructions, might result in an over-explicitation of the appropriate steps to carry out. For example, the simulation might prompt the student to “Perform Uterine Palpation Now”, causing the student to rely more heavily on the prompt, compared to the natural progression of the simulation. A potential way to overcome this would be to offer a ‘no guidance’ mode, allowing more confident students to practice their skills without prompts.
+        </p>
+      </div>
+      
+      <div id="section-5-4">
+        <h3>5.4 Subjective Bias in Empathy</h3>
+        <p>
+          Empathy is a soft skill, and as such poses a challenge to validate the students responses in a quantifiable way. In the peer-to-peer roleplay, the observer, resembling the role of the integrated AI for future integration, provides feedback and assigns scores according to how they perceive the students’ responses.The challenge is thus to ensure that the assessment rubric created is interpreted consistently by the AI model. Furthermore, there is a subjective bias in the threshold for empathy, wherein one person’s perception of empathy may vary from another, making it unreliable and inaccurate in assessing the student’s response. As such, there is a need for our solution to create clear, objective definitions on how aspects such as tone, reassurance, and clarity are evaluated.
+        </p>
+      </div>
+
+      <div id="section-6">
+        <h2>6. Next Steps</h2>
+        <p>
+         The detailed schedule for the upcoming development, testing, and final deliverables is outlined in the VR003 Sem 2 Project Schedule (Appendix).
+        </p>
+        <p>
+      </div>
+      
+      <div id="section-6-1">
+        <h3>6.1 What are our next steps</h3>
+        <h4>1. Address Identified Challenges</h4>
+        <p>
+          The first and utmost priority would be to address the prototyping challenges identified from the previous prototyping works. There is a need to tackle the issues raised to ensure that the final simulation is effective in conveying a realistic PPH training scenario, that guides students on the proper procedures and responses to execute.
+        </p>
+        <p>
+          From feedback received, it was noted that integrating each element that was initially planned to be introduced (realistic facial expressions, full PPH scenario), might be too ambitious and ultimately raise more problems than solutions. Thus, there is also a need to further refine and optimise the VR solution, to be more optimised to solve the key issue of PPH training that cannot be addressed by traditional methods.
+        </p>
+        <h4>2. Testing and Finalisation</h4>
+        <p>
+          After further prototype refinement, the team will then proceed to integrate the various prototyping works and finalise the assessment tools used to evaluate the student’s performance. This would involve incorporating the dynamic audio files, VR delivery room, PPH Patient and AI Nurse into a single, cohesive, VR training simulation for internal testing. There is also a need to finalise the scoring rubric that measures student performance such as time-sensitive action taken and correctness of empathetic communication and phrasing.
+        </p>
+        <h4>3. External Validation and User Feedback</h4>
+        <p>
+          There needs to be external testing conducted, to validate the effectiveness of the solution with the target audience, which in this case, would be year 4 medical students in Singapore. We aim to conduct sessions with the students where they would run the complete VR simulation and compile their feedback directly.
+        </p>
+        <p>
+          The feedback will then be assessed and analysed, to highlight any key areas of improvement or previous errors that went unnoticed to the development team, while also ensuring that the final simulation is realistic, usable, and effective in PPH training.
+        </p>
+        <p>
+          This step is the most crucial in the finalisation of our solution as it guarantees that our solution is pedagogically sound and accepted by the medical students as a valid PPH training option.
+        </p>
+      </div>
+
+      <div id="section-7">
+        <h2>7. Work Completed</h2>
+        <p>
+          Admin tasks were completed by Sarah. All team members contributed in previous ideation, solution development, and discussions with the supervisor and clinical consultant. VR prototyping work was completed by Ranjith. The VR storyboard prototype was developed by Ragavi. Audio prototyping was completed by Deepika. Empathy roleplay and scenario creation was developed by Sarah and Snega. The presentation and report was completed as a team.
+        </p>
+      </div>
+
+      <div id="section-8">
+        <h2>8. Appendix</h2>
+        <image-component tag="gantt-chart" source="assets/gantt-chart.png"
+          subtitle="Gantt Chart: VR403 Sem 2 Project Schedule"></image-component>
+      </div>
+    </section>
+
+    <section id="references" class="references">
+      <sl-divider></sl-divider>
+      <h2>References</h2>
+      <ul>
+        <li>
+          American College of Obstetricians and Gynecologists. (2017). Practice Bulletin No. 183: Postpartum hemorrhage. Obstetrics & Gynecology, 130(4), e168–e186. <a href="https://www.ncbi.nlm.nih.gov/books/NBK499988/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK499988/</a>
+        </li>
+        <li>
+          World Health Organization. (2018). WHO recommendations: Uterotonics for the prevention of postpartum haemorrhage. Sexual and Reproductive Health and Research (SRH) <a href="http://www.who.int/" target="_blank">(who.int)</a>
+        </li>
+        <li>
+          Say, L., Chou, D., Gemmill, A., Tunçalp, Ö., Moller, A. B., Daniels, J., & Alkema, L. (2014). Global causes of maternal death: A WHO systematic analysis. The Lancet Global Health, 2(6), e323–e333. <a href="https://www.ncbi.nlm.nih.gov/pubmed/24930983" target="_blank">Global causes of maternal death: a WHO systematic analysis - PubMed (nih.gov)</a>
+        </li>
+        <li>
+          Rath, W. (2021). Postpartum haemorrhage—Update on problems of definitions and diagnosis. Acta Obstetricia et Gynecologica Scandinavica, 100(12), 2181–2189. <a href="https://pubmed.ncbi.nlm.nih.gov/34293237/" target="_blank">Postpartum hemorrhage--update on problems of definitions and diagnosis - PubMed (nih.gov)</a>
+        </li>
+        <li>
+          Evensen, A., Anderson, J. M., & Fontaine, P. (2017). Postpartum hemorrhage: Prevention and management. American Family Physician, 95(7), 442–449. <a href="https://www.aafp.org/pubs/afp/issues/2017/0401/p442.html" target="_blank">https://www.aafp.org/pubs/afp/issues/2017/0401/p442.html</a>
+        </li>
+        <li>
+          Sebghati, M., & Chandraharan, E. (2017). An update on the risk factors for and management of obstetric haemorrhage. Women’s Health (London, England), 13(2), 34–40. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5557181/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC5557181/</a>
+        </li>
+        <li>
+          FIGO. (2022). FIGO Generic Postpartum Haemorrhage Protocol and Care Pathways. <a href="https://www.figo.org/sites/default/files/2022-04/FIGO%20generic%20protocols%20PPH%20%20April%202022.pdf" target="_blank">https://www.figo.org/sites/default/files/2022-04/FIGO%20generic%20protocols%20PPH%20%20April%202022.pdf</a>
+        </li>
+        <li>
+          WOMAN Trial Collaborators. (2017). Effect of early tranexamic acid administration on mortality, hysterectomy, and other morbidities in women with postpartum haemorrhage (WOMAN trial). The Lancet, 389(10084), 2105–2116. <a href="https://doi.org/10.1016/S0140-6736(17)30638-4" target="_blank">(https://doi.org/10.1016/S0140-6736(17)30638-4)</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <sl-button class="scroll-to-top" variant="primary" size="medium" circle onclick="scrollToTop()">
+    <sl-icon name="arrow-up" label="Settings"></sl-icon>
+  </sl-button>
+
+  <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+  <script type="module" src="./components/table-component/table-component.js"></script>
+  <script>
+    // Initialize scroll animations and scroll-to-top button
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollButton = document.querySelector('.scroll-to-top');
+      
+      // Show/hide scroll to top button
+      if (scrollButton) {
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            scrollButton.classList.add('visible');
+          } else {
+            scrollButton.classList.remove('visible');
+          }
+        });
+      }
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe sections and content for animations
+      setTimeout(() => {
+        document.querySelectorAll('div[id^="section"], h2, h3, p, image-component, video-component').forEach(el => {
+          if (!el.classList.contains('fade-in')) {
+            el.classList.add('fade-in');
+            observer.observe(el);
+          }
+        });
+      }, 100);
+    });
+  </script>
+</body>
+
+</html>
